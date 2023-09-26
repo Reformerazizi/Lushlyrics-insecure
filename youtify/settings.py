@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # third-party
     'allauth',
     'allauth.account',
+    'crispy_forms',
 
     # local
     'main',
@@ -135,7 +136,13 @@ STATICFILES_DIRS = [
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'default'
-LOGOUT_REDIRECT_URL = 'default'
+ACCOUNT_LOGOUT_REDIRECT = 'default'
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
